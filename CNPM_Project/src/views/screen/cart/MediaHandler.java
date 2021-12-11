@@ -25,6 +25,7 @@ import utils.Utils;
 import views.screen.FXMLScreenHandler;
 
 public class MediaHandler extends FXMLScreenHandler {
+	// Tran Lam
 
 	private static Logger LOGGER = Utils.getLogger(MediaHandler.class.getName());
 
