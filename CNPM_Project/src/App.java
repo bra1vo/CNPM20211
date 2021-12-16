@@ -6,10 +6,12 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import utils.Configs;
+import view.screen.login.LogInHandler;
 import views.screen.home.*;
 
 public class App extends Application {
@@ -44,21 +46,24 @@ public class App extends Application {
 			fadeIn.setOnFinished((e) -> {
 				fadeOut.play();
 			});
-
-			// After fade out, load actual content
+			
 			fadeOut.setOnFinished((e) -> {
 				try {
-					HomeScreenHandler homeHandler = new HomeScreenHandler(primaryStage, Configs.HOME_PATH);
+					LogInHandler logHandler = new LogInHandler(primaryStage, Configs.LOGIN_PATH);
+					logHandler.setScreenTitle("Log In");
+					logHandler.show();
+/*					HomeScreenHandler homeHandler = new HomeScreenHandler(primaryStage, Configs.HOME_PATH);
 					homeHandler.setScreenTitle("Home Screen");
 					homeHandler.setImage();
-					homeHandler.show();
+					homeHandler.show(); */
 				} catch (IOException e1) {
 					e1.printStackTrace();
 				}
-			});
+			}); 
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		
 	}
 
 	public static void main(String[] args) {

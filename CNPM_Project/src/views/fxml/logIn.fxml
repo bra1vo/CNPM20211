@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="788.0" prefWidth="1326.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <AnchorPane prefHeight="788.0" prefWidth="525.0">
+         <children>
+            <ImageView fitHeight="215.0" fitWidth="299.0" layoutX="91.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../image/images.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="112.0" layoutY="268.0" prefHeight="46.0" prefWidth="226.0" text="BOOK STORE">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="519.0" prefHeight="788.0" prefWidth="467.0">
+         <children>
+            <Label layoutX="68.0" layoutY="304.0" text="No Account?">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="31.0" layoutY="185.0" prefHeight="27.0" prefWidth="81.0" text="Password">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="31.0" layoutY="136.0" text="User Name">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <TextField fx:id="tf_password" layoutX="136.0" layoutY="183.0" prefHeight="32.0" prefWidth="199.0" promptText="Password" />
+            <Button fx:id="tf_signIn" layoutX="111.0" layoutY="244.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="118.0" text="Sign In">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="tf_signUp" layoutX="180.0" layoutY="305.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="97.0" text="Sign Up" />
+            <TextField fx:id="tf_username" layoutX="136.0" layoutY="134.0" prefHeight="32.0" prefWidth="199.0" promptText="User name" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
