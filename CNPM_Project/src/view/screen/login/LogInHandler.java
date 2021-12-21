@@ -78,13 +78,22 @@ public class LogInHandler extends BaseScreenHandler implements Initializable {
 				}
 				
 			} catch (Exception e1) {
+				e1.printStackTrace();
+			}
+		});
+		
+		tf_signUp.setOnMouseClicked(e -> {
+			try {
+				LOGGER.info("User clicked to Sign Up");
+				SignUpHandler signUp = new SignUpHandler(this.stage, Configs.SIGN_UP_PATH);
+				signUp.setScreenTitle("Sign Up");
+				signUp.show();
+			} catch (Exception e2) {
+				
 			}
 		});
 	}
 	
-	public void setUserInformation(String userName, String email) {
-		
-	}
 	
 	public void validateLogin() throws SQLException {
 		Statement stm = AIMSDB.getConnection().createStatement();
@@ -96,7 +105,7 @@ public class LogInHandler extends BaseScreenHandler implements Initializable {
 			if (re.getInt(1) == 1) {
 				isLogin = true;
 			} else {
-				isLogin = true;
+				isLogin = false;
 			}; 
 		} catch(Exception e) {
 		}

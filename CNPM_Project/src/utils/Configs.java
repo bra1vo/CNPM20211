@@ -54,6 +54,8 @@ public class Configs {
 	// New
 	public static final String LOGIN_PATH = "/views/fxml/logIn.fxml";
 	public static final String FALSE_LOGIN_PATH = "/views/fxml/loginfalse.fxml";
+	public static final String SIGN_UP_PATH = "/views/fxml/signup.fxml";
+	public static final String SIGN_UP_STATUS_PATH = "/views/fxml/resultsignup.fxml";
 
 	public static Font REGULAR_FONT = Font.font("Segoe UI", FontWeight.NORMAL, FontPosture.REGULAR, 24);
 

@@ -79,7 +79,7 @@ public class PlaceOrderController extends BaseController{
    * @throws IOException
    */
     public void validateDeliveryInfo(HashMap<String, String> info) throws InterruptedException, IOException{
-    	if(!validateName(info.get("name"))){
+/*    	if(!validateName(info.get("name"))){
             throw new InterruptedException("Name is invalid");
         }
         if(!validateAddress(info.get("address"))){
@@ -88,6 +88,7 @@ public class PlaceOrderController extends BaseController{
         if(!validatePhoneNumber(info.get("phone"))){
             throw new InterruptedException("Phone number is invalid");
         }
+*/
     }
     
     public boolean validatePhoneNumber(String phoneNumber) {

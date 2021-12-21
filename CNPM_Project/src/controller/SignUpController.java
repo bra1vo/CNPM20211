@@ -1,16 +1,12 @@
 package controller;
 
 import java.io.IOException;
-import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.logging.Logger;
 
-import entity.user.User;
-
-public class LogInController extends BaseController {
+public class SignUpController extends BaseController {
 	
-	
-	private static Logger LOGGER = utils.Utils.getLogger(LogInController.class.getName());
+private static Logger LOGGER = utils.Utils.getLogger(SignUpController.class.getName());
 	
 	/**
      * This method takes responsibility for processing the shipping info from user

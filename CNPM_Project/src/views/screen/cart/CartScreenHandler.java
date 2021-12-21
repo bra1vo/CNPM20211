@@ -58,7 +58,7 @@ public class CartScreenHandler extends BaseScreenHandler {
 		super(stage, screenPath);
 
 		// fix relative image path caused by fxml
-		File file = new File("assets/images/Logo.png");
+		File file = new File("assets/images/Logo2.png");
 		Image im = new Image(file.toURI().toString());
 		aimsImage.setImage(im);
 

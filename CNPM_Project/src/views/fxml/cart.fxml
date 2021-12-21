@@ -10,16 +10,16 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label fx:id="pageTitle" layoutX="60.0" layoutY="-9.0" prefHeight="96.0" prefWidth="128.0" text="CART" textAlignment="CENTER" textFill="#5091e6">
+      <Label fx:id="pageTitle" layoutX="78.0" layoutY="-9.0" prefHeight="96.0" prefWidth="128.0" text="CART" textAlignment="CENTER" textFill="#5091e6">
          <font>
             <Font name="Segoe UI Semibold" size="42.0" />
          </font>
       </Label>
       <ImageView fx:id="aimsImage" fitHeight="73.0" fitWidth="73.0" layoutX="-6.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
          <image>
-            <Image url="@../../../assets/images/Logo.png" />
+            <Image url="@../../../assets/images/Logo2.png" />
          </image>
       </ImageView>
       <ScrollPane hbarPolicy="NEVER" layoutX="14.0" layoutY="70.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="678.0" prefWidth="987.0">
@@ -78,7 +78,7 @@
             </HBox>
             <AnchorPane prefHeight="138.0" prefWidth="344.0">
                <children>
-                  <Button fx:id="btnPlaceOrder" alignment="CENTER" contentDisplay="CENTER" layoutX="14.0" layoutY="75.0" mnemonicParsing="false" onMouseClicked="#requestToPlaceOrder" prefHeight="55.0" prefWidth="316.0" style="-fx-background-color: #5091e6; -fx-cursor: hand;" text="Place order" textFill="WHITE">
+                  <Button fx:id="btnPlaceOrder" alignment="CENTER" contentDisplay="CENTER" layoutX="14.0" layoutY="75.0" mnemonicParsing="false" onMouseClicked="#requestToPlaceOrder" prefHeight="55.0" prefWidth="316.0" style="-fx-background-color: #5091e6; -fx-cursor: hand;" text="Continue" textFill="WHITE">
                      <font>
                         <Font name="Segoe UI Bold" size="24.0" />
                      </font>

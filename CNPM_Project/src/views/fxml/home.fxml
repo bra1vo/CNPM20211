@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="788.0" prefWidth="1326.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="788.0" prefWidth="1326.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <HBox prefHeight="104.0" prefWidth="1326.0" style="-fx-background-color: #ccebff; -fx-border-color: #33adff;">
          <children>
@@ -24,7 +24,7 @@
                               <Image url="@../../../../../../../../../../mnt/nguyenlm/DriveD/Documents/UNIVERSITY/PERSONAL/PROJECT/Java/TA-TKXDPM/AIMS/assets/images/Logo.png" />
                            </image>
                         </ImageView>
-                        <Label layoutX="6.0" layoutY="68.0" prefHeight="41.0" prefWidth="100.0" text="    AIMS" textAlignment="CENTER" textFill="#5091e6">
+                        <Label layoutX="6.0" layoutY="68.0" prefHeight="41.0" prefWidth="150.0" text="BOOK STORE" textAlignment="CENTER" textFill="#5091e6">
                            <font>
                               <Font size="24.0" />
                            </font>

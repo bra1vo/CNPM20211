@@ -118,13 +118,15 @@ public class HomeScreenHandler extends BaseScreenHandler implements Initializabl
         });
         addMediaHome(this.homeItems);
         addMenuItem(0, "Book", splitMenuBtnSearch);
-        addMenuItem(1, "DVD", splitMenuBtnSearch);
+        addMenuItem(1, "Coffee", splitMenuBtnSearch);
+/*      addMenuItem(1, "DVD", splitMenuBtnSearch);
         addMenuItem(2, "CD", splitMenuBtnSearch);
+*/
     }
 
     public void setImage(){
         // fix image path caused by fxml
-        File file1 = new File(Configs.IMAGE_PATH + "/" + "Logo.png");
+        File file1 = new File(Configs.IMAGE_PATH + "/" + "Logo2.png");
         Image img1 = new Image(file1.toURI().toString());
         aimsImage.setImage(img1);
 
