@@ -2,18 +2,22 @@ package views.screen.shipping;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.HashMap;
 import java.util.ResourceBundle;
 
 import controller.PlaceOrderController;
 import common.exception.InvalidDeliveryInfoException;
+import entity.db.AIMSDB;
 import entity.invoice.Invoice;
 import entity.order.Order;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -26,6 +30,9 @@ import views.screen.popup.PopupScreen;
 
 public class ShippingScreenHandler extends BaseScreenHandler implements Initializable {
 
+	@FXML
+	private Button findButton;
+	
 	@FXML
 	private Label screenTitle;
 
@@ -61,6 +68,16 @@ public class ShippingScreenHandler extends BaseScreenHandler implements Initiali
             }
         });
 		this.province.getItems().addAll(Configs.PROVINCES);
+		
+		findButton.setOnMouseClicked(e->{
+			try {
+				findCustomer(Integer.parseInt(phone.getText()));
+			} catch (Exception e2) {
+				// TODO: handle exception
+			}
+		});
+		
+		
 	}
 
 	@FXML
@@ -97,6 +114,26 @@ public class ShippingScreenHandler extends BaseScreenHandler implements Initiali
 
 	public PlaceOrderController getBController(){
 		return (PlaceOrderController) super.getBController();
+	}
+	
+	public boolean findCustomer(int phoneNumber) throws SQLException {
+		Statement stm;
+		try {
+			int EMAIL_ADDRESS_COLUMN=3;
+			int NAME_COLUMN=2;
+			stm = AIMSDB.getConnection().createStatement();
+			String sql = "SELECT * FROM User WHERE phone = '" + phone.getText()+"'";
+			ResultSet re = stm.executeQuery(sql);
+			
+			address.setText(re.getString(EMAIL_ADDRESS_COLUMN));
+			name.setText(re.getString(NAME_COLUMN));
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+	
+		
+		return true;
 	}
 
 	public void notifyError(){

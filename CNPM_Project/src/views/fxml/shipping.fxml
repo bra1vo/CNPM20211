@@ -92,7 +92,7 @@
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="3">
                <children>
-                  <Label layoutX="38.0" layoutY="44.0" text="Address">
+                  <Label layoutX="38.0" layoutY="44.0" text="Email Address">
                      <font>
                         <Font name="Segoe UI" size="24.0" />
                      </font>
@@ -242,7 +242,7 @@
             </Pane>
          </children>
       </GridPane>
-      <Button layoutX="1233.0" layoutY="72.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="97.0" text="FIND">
+      <Button fx:id="findButton" layoutX="1233.0" layoutY="72.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="97.0" text="FIND">
          <font>
             <Font size="18.0" />
          </font>
