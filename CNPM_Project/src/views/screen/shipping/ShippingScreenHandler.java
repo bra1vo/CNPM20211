@@ -50,6 +50,10 @@ public class ShippingScreenHandler extends BaseScreenHandler implements Initiali
 
 	@FXML
 	private ComboBox<String> province;
+	
+	@FXML
+	private ComboBox<String> province1;
+	
 
 	private Order order;
 
@@ -68,6 +72,7 @@ public class ShippingScreenHandler extends BaseScreenHandler implements Initiali
             }
         });
 		this.province.getItems().addAll(Configs.PROVINCES);
+		this.province1.getItems().addAll(Configs.PROVINCES);
 		
 		findButton.setOnMouseClicked(e->{
 			try {
