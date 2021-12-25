@@ -78,7 +78,7 @@ public class SignUpHandler extends BaseScreenHandler implements Initializable {
 				     + "'" + tf_address.getText() + "'" + "," 
 				     + "'" + tf_phonenumberup.getText() + "'" + ","
 				     + "'" + tf_usernameup.getText() + "'" + "," 
-				     + "'" + tf_passwordup.getText() + "'" + ");" ;
+				     + "'" + tf_passwordup.getText() + "'" + ")" ;
 		
 		int re = stm.executeUpdate(sql);
 		
@@ -92,8 +92,10 @@ public class SignUpHandler extends BaseScreenHandler implements Initializable {
 			LOGGER.info("Create New Account");
 			try {
 				makeNewAccount();
+				
+				//Check if create new account successfully, if not show failed dialog
 				Statement stm = AIMSDB.getConnection().createStatement();
-				String sql="select username from user";
+				String sql="select username from user where username='"+tf_usernameup.getText()+"'";
 				
 				ResultSet re =stm.executeQuery(sql);
 				if(re.getRow()==0) LogInFalseHandler.error();
