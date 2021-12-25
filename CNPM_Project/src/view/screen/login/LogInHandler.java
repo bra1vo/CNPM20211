@@ -18,6 +18,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 import utils.Configs;
 import utils.Utils;
@@ -64,21 +66,18 @@ public class LogInHandler extends BaseScreenHandler implements Initializable {
 	public void initialize(URL location, ResourceBundle resource) {
 		setBController(new LogInController());
 		tf_signIn.setOnMouseClicked(e -> {
-			try {
-				LOGGER.info("User clicked to Sign In");
-				validateLogin();
-				if (isLogin) {
-					HomeScreenHandler homeHandler = new HomeScreenHandler(this.stage, Configs.HOME_PATH);
-					homeHandler.setScreenTitle("Home Screen");
-					homeHandler.setImage();
-					homeHandler.show();
-				} else {
-					LOGGER.info("False a Login");
-					LogInFalseHandler.error();
-				}
-				
-			} catch (Exception e1) {
-				e1.printStackTrace();
+			loginToHomeSceen();
+		});
+		
+		tf_password.setOnKeyPressed(e->{
+			if(e.getCode()==KeyCode.ENTER){
+				loginToHomeSceen();
+			}
+		});
+		
+		tf_username.setOnKeyPressed(e->{
+			if(e.getCode()==KeyCode.ENTER){
+				loginToHomeSceen();
 			}
 		});
 		
@@ -94,6 +93,24 @@ public class LogInHandler extends BaseScreenHandler implements Initializable {
 		});
 	}
 	
+	public void loginToHomeSceen() {
+		try {
+			LOGGER.info("User clicked to Sign In");
+			validateLogin();
+			if (isLogin) {
+				HomeScreenHandler homeHandler = new HomeScreenHandler(this.stage, Configs.HOME_PATH);
+				homeHandler.setScreenTitle("Home Screen");
+				homeHandler.setImage();
+				homeHandler.show();
+			} else {
+				LOGGER.info("False a Login");
+				LogInFalseHandler.error();
+			}
+			
+		} catch (Exception e1) {
+			e1.printStackTrace();
+		}
+	}
 	
 	public void validateLogin() throws SQLException {
 		Statement stm = AIMSDB.getConnection().createStatement();
