@@ -19,6 +19,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import utils.Configs;
 import utils.Utils;
+import view.screen.logInFalse.LogInFalseHandler;
 import views.screen.BaseScreenHandler;
 
 public class SignUpHandler extends BaseScreenHandler implements Initializable {
@@ -55,7 +56,11 @@ public class SignUpHandler extends BaseScreenHandler implements Initializable {
 	public SignUpHandler(Stage stage, String screenPath) throws IOException {
 		super(stage, screenPath);
 	}
-	
+	private static LogInFalseHandler logInFalse(String imagepath) throws IOException{
+		LogInFalseHandler logFalse = new LogInFalseHandler(new Stage());
+		logFalse.setImage(imagepath);
+	    return logFalse;
+	   }
 	@Override
     public void show() {
         super.show();
@@ -87,9 +92,13 @@ public class SignUpHandler extends BaseScreenHandler implements Initializable {
 			LOGGER.info("Create New Account");
 			try {
 				makeNewAccount();
+				Statement stm = AIMSDB.getConnection().createStatement();
+				String sql="select username from user";
 				
+				ResultSet re =stm.executeQuery(sql);
+				if(re.getRow()==0) LogInFalseHandler.error();
 				
-			} catch (SQLException e1) {
+			} catch (SQLException | IOException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
