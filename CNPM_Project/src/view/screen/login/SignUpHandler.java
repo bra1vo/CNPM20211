@@ -8,6 +8,8 @@ import java.sql.Statement;
 import java.util.ResourceBundle;
 import java.util.logging.Logger;
 
+import javax.swing.JOptionPane;
+
 import controller.BaseController;
 import controller.LogInController;
 import controller.SignUpController;
@@ -52,6 +54,7 @@ public class SignUpHandler extends BaseScreenHandler implements Initializable {
 	
 	@FXML
 	public Button tf_returnSignIn;
+	
 	
 	public SignUpHandler(Stage stage, String screenPath) throws IOException {
 		super(stage, screenPath);
@@ -98,7 +101,7 @@ public class SignUpHandler extends BaseScreenHandler implements Initializable {
 				String sql="select username from user where username='"+tf_usernameup.getText()+"'";
 				
 				ResultSet re =stm.executeQuery(sql);
-				if(re.getRow()==0) LogInFalseHandler.error();
+				if(re.last()) LogInFalseHandler.error();
 				
 			} catch (SQLException | IOException e1) {
 				// TODO Auto-generated catch block
