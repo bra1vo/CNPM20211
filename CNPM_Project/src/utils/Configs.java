@@ -1,11 +1,13 @@
 package utils;
 
+import entity.user.User;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontPosture;
 import javafx.scene.text.FontWeight;
 /**
  * @author nguyenlm Contains the configs for AIMS Project
  */
+
 public class Configs {
 
 	// api constants
@@ -36,6 +38,8 @@ public class Configs {
 
 	public static String CURRENCY = "VND";
 	public static float PERCENT_VAT = 10;
+	
+	public static User user = null;
 
 	// static resource
 	public static final String IMAGE_PATH = "assets/images";

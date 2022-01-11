@@ -11,6 +11,7 @@ import java.util.logging.Logger;
 import controller.HomeController;
 import controller.LogInController;
 import entity.db.AIMSDB;
+import entity.user.User;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -45,8 +46,6 @@ public class LogInHandler extends BaseScreenHandler implements Initializable {
 
 	@FXML
 	private TextField tf_password;
-
-	
 
 	public LogInHandler(Stage stage, String screenPath) throws IOException {
 		// TODO Auto-generated constructor stub
@@ -97,7 +96,7 @@ public class LogInHandler extends BaseScreenHandler implements Initializable {
 		try {
 			LOGGER.info("User clicked to Sign In");
 			validateLogin();
-			if (isLogin) {
+			if (isLogin) {		
 				HomeScreenHandler homeHandler = new HomeScreenHandler(this.stage, Configs.HOME_PATH);
 				homeHandler.setScreenTitle("Home Screen");
 				homeHandler.setImage();
@@ -112,17 +111,29 @@ public class LogInHandler extends BaseScreenHandler implements Initializable {
 		}
 	}
 	
+
 	public void validateLogin() throws SQLException {
 		Statement stm = AIMSDB.getConnection().createStatement();
 		String sql = "SELECT count(1) FROM User WHERE username = '" + tf_username.getText() +
 				     "' AND password = '" + tf_password.getText() + "';";
 		
+		String sql2 = "SELECT * FROM User Where username = '" + tf_username.getText() +
+					"' AND password = '" + tf_password.getText() + "';";
+		
 		ResultSet re = stm.executeQuery(sql);
 		try {
 			if (re.getInt(1) == 1) {
 				isLogin = true;
+				
+				ResultSet re2 = stm.executeQuery(sql2);
+				while (re2.next()) {
+					Configs.user = new User(re2.getInt("id"), re2.getString("name"), re2.getString("email"),
+							re2.getString("address"), re2.getString("phone"), re2.getString("username"),
+							re2.getString("password"));
+				}
+				
 			} else {
-				isLogin = false;
+				isLogin = true;
 			}; 
 		} catch(Exception e) {
 		}
