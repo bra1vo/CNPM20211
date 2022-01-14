@@ -19,6 +19,7 @@ import entity.cart.Cart;
 import entity.media.Media;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
@@ -33,6 +34,7 @@ import utils.Configs;
 import utils.Utils;
 import views.screen.BaseScreenHandler;
 import views.screen.cart.CartScreenHandler;
+import views.screen.workingspace.WorkingspaceHandler;
 
 
 public class HomeScreenHandler extends BaseScreenHandler implements Initializable{
@@ -62,6 +64,9 @@ public class HomeScreenHandler extends BaseScreenHandler implements Initializabl
 
     @FXML
     private SplitMenuButton splitMenuBtnSearch;
+    
+    @FXML
+    private Button datcho;
 
     private List homeItems;
 
@@ -122,6 +127,19 @@ public class HomeScreenHandler extends BaseScreenHandler implements Initializabl
 /*      addMenuItem(1, "DVD", splitMenuBtnSearch);
         addMenuItem(2, "CD", splitMenuBtnSearch);
 */
+        datcho.setOnMouseClicked(e ->{
+        	WorkingspaceHandler workingspace;
+        	try {
+                LOGGER.info("User clicked to view workingspace");
+                workingspace = new WorkingspaceHandler(this.stage, Configs.WORKINGSPACE_PATH);
+                workingspace.setScreenTitle("Working space");
+                workingspace.show();
+                
+        	}
+        	catch (Exception e1) {
+				e1.printStackTrace();
+			}
+        });
     }
 
     public void setImage(){

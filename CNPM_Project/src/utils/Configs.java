@@ -54,7 +54,11 @@ public class Configs {
 	public static final String HOME_PATH  = "/views/fxml/home.fxml";
 	public static final String HOME_MEDIA_PATH = "/views/fxml/media_home.fxml";
 	public static final String POPUP_PATH = "/views/fxml/popup.fxml";
-	
+	//new
+	public static final String WORKINGSPACE_PATH = "/views/fxml/workingspace.fxml";
+	public static final String PHONG_PATH = "/views/fxml/phong.fxml";
+	public static final String DATPHONG_PATH = "/views/fxml/datphong.fxml";
+	public static final String XEMPHONG_PATH = "/views/fxml/xemphong.fxml";
 	// New
 	public static final String LOGIN_PATH = "/views/fxml/logIn.fxml";
 	public static final String FALSE_LOGIN_PATH = "/views/fxml/loginfalse.fxml";
