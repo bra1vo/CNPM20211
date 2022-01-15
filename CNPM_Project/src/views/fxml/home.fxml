@@ -74,11 +74,15 @@
             </VBox>
             <Pane prefHeight="200.0" prefWidth="200.0">
                <children>
-                  <Button fx:id="datcho" layoutX="28.0" layoutY="27.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="137.0" text="Working space">
+                  <Button fx:id="datcho" layoutX="31.0" layoutY="3.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="137.0" text="Working space">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </Button>
+                  <Button fx:id="logOutButton" layoutX="7.0" layoutY="76.0" mnemonicParsing="false" text="Log Out" />
+                  <Label layoutX="59.0" layoutY="51.0" />
+                  <Label layoutX="16.0" layoutY="51.0" prefHeight="17.0" prefWidth="40.0" text="user:" />
+                  <Label fx:id="userNameLabel" layoutX="56.0" layoutY="51.0" prefHeight="17.0" prefWidth="76.0" text="username" />
                </children>
             </Pane>
          </children>

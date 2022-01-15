@@ -33,6 +33,7 @@ import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 import utils.Configs;
 import utils.Utils;
+import view.screen.login.LogInHandler;
 import views.screen.BaseScreenHandler;
 import views.screen.cart.CartScreenHandler;
 import views.screen.manage.ManageHandler;
@@ -72,8 +73,15 @@ public class HomeScreenHandler extends BaseScreenHandler implements Initializabl
     
     @FXML
     private Button manageButton;
+    
+    @FXML
+    private Button logOutButton;
+    
+    @FXML
+    public Label userNameLabel;
 
     private List homeItems;
+    
     
     
     private String currentUser;
@@ -161,9 +169,20 @@ public class HomeScreenHandler extends BaseScreenHandler implements Initializabl
         	catch (Exception e1) {
 				e1.printStackTrace();
 			}
-        	
-        	
-        	
+        });
+        
+        
+        logOutButton.setOnMouseClicked(e->{
+        	LogInHandler logIn;
+        	   try {
+        		   logIn = new LogInHandler(this.stage, Configs.LOGIN_PATH);
+        		   logIn.setScreenTitle("Working space");
+        		   logIn.show();
+				LOGGER.info("Logged Out");
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
         });
     }
 

@@ -18,6 +18,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
@@ -45,7 +46,7 @@ public class LogInHandler extends BaseScreenHandler implements Initializable {
 	private TextField tf_username;
 
 	@FXML
-	private TextField tf_password;
+	private PasswordField tf_password;
 
 	public LogInHandler(Stage stage, String screenPath) throws IOException {
 		// TODO Auto-generated constructor stub
@@ -103,15 +104,16 @@ public class LogInHandler extends BaseScreenHandler implements Initializable {
 				
 				try {
 					Statement stm = AIMSDB.getConnection().createStatement();
-					String sql = "SELECT role FROM User WHERE username='"+ tf_username.getText() +"';";
+					String sql = "SELECT username,role FROM User WHERE username='"+ tf_username.getText() +"';";
 					ResultSet re = stm.executeQuery(sql);
-					String str =re.getString(1);
+					String str =re.getString(2);
 					homeHandler.setCurrentUser(str);
 					
 					System.out.println("ROLE ROLE ROLE "+str);
 					
 					homeHandler.setCurrentUser(str);
 					homeHandler.setManageButtonOnOrOff();
+					homeHandler.userNameLabel.setText(re.getString(1));
 				} 
 				catch(Exception e) {
 					e.printStackTrace();
