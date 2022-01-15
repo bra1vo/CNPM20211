@@ -33,6 +33,7 @@
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="843.2" minWidth="10.0" prefWidth="82.39999999999998" />
          </columnConstraints>
          <rowConstraints>
+            <RowConstraints maxHeight="108.60001220703126" minHeight="10.0" prefHeight="47.0" vgrow="SOMETIMES" />
             <RowConstraints maxHeight="108.60001220703126" minHeight="0.0" prefHeight="47.0" vgrow="SOMETIMES" />
             <RowConstraints maxHeight="168.5999969482422" minHeight="0.0" prefHeight="46.0" vgrow="SOMETIMES" />
             <RowConstraints maxHeight="311.8000549316406" minHeight="10.0" prefHeight="37.0" vgrow="SOMETIMES" />
@@ -46,7 +47,7 @@
                   <Insets left="10.0" />
                </padding>
             </Label>
-            <Label text="Shipping Fees" GridPane.rowIndex="1">
+            <Label text="Shipping Fees" GridPane.rowIndex="2">
                <font>
                   <Font name="Segoe UI" size="24.0" />
                </font>
@@ -54,7 +55,7 @@
                   <Insets left="10.0" />
                </GridPane.margin>
             </Label>
-            <Label text="Total" GridPane.rowIndex="2">
+            <Label text="Total" GridPane.rowIndex="3">
                <font>
                   <Font name="Segoe UI" size="24.0" />
                </font>
@@ -67,14 +68,27 @@
                   <Font name="Segoe UI" size="24.0" />
                </font>
             </Label>
-            <Label fx:id="shippingFees" alignment="CENTER_RIGHT" prefHeight="44.0" prefWidth="500.0" text="50,000 đ" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <Label fx:id="shippingFees" alignment="CENTER_RIGHT" prefHeight="44.0" prefWidth="500.0" text="50,000 đ" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <font>
                   <Font name="Segoe UI" size="24.0" />
                </font>
             </Label>
-            <Label fx:id="total" alignment="CENTER_RIGHT" prefHeight="200.0" prefWidth="500.0" text="150,000 đ" textFill="#ff0009" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <Label fx:id="total" alignment="CENTER_RIGHT" prefHeight="200.0" prefWidth="500.0" text="150,000 đ" textFill="#ff0009" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <font>
                   <Font name="Segoe UI Bold" size="24.0" />
+               </font>
+            </Label>
+            <Label text="Discount" GridPane.rowIndex="1">
+               <font>
+                  <Font name="Segoe UI" size="24.0" />
+               </font>
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+            </Label>
+            <Label fx:id="discount" alignment="CENTER_RIGHT" prefHeight="44.0" prefWidth="500.0" text="40%" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <font>
+                  <Font name="Segoe UI" size="24.0" />
                </font>
             </Label>
          </children>
@@ -159,7 +173,7 @@
             </Label>
          </children>
       </GridPane>
-      <ScrollPane fx:id="vboxIte" hbarPolicy="NEVER" layoutX="670.0" layoutY="77.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="439.0" prefWidth="669.0">
+      <ScrollPane fx:id="vboxIte" hbarPolicy="NEVER" layoutX="783.0" layoutY="77.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="323.0" prefWidth="557.0">
          <content>
             <VBox fx:id="vboxItems" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="567.0" />
          </content>

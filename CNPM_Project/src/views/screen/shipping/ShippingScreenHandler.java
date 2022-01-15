@@ -1,12 +1,14 @@
 package views.screen.shipping;
 
 import java.io.IOException;
+import java.lang.System.Logger;
 import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.HashMap;
 import java.util.ResourceBundle;
+import java.util.logging.LogManager;
 
 import controller.PlaceOrderController;
 import common.exception.InvalidDeliveryInfoException;
@@ -27,6 +29,7 @@ import utils.Configs;
 import views.screen.BaseScreenHandler;
 import views.screen.invoice.InvoiceScreenHandler;
 import views.screen.popup.PopupScreen;
+import entity.user.User;
 
 public class ShippingScreenHandler extends BaseScreenHandler implements Initializable {
 
@@ -87,6 +90,8 @@ public class ShippingScreenHandler extends BaseScreenHandler implements Initiali
 
 	@FXML
 	void submitDeliveryInfo(MouseEvent event) throws IOException, InterruptedException, SQLException {
+	
+
 
 		// add info to messages
 		HashMap messages = new HashMap<>();
@@ -122,16 +127,26 @@ public class ShippingScreenHandler extends BaseScreenHandler implements Initiali
 	}
 	
 	public boolean findCustomer(int phoneNumber) throws SQLException {
+		
 		Statement stm;
 		try {
 			int EMAIL_ADDRESS_COLUMN=3;
 			int NAME_COLUMN=2;
+			int PHONE_COLUMN = 5;
+			int POINT_COLUMN = 8;
+			int LEVEL_COLUMN = 9;
+			
 			stm = AIMSDB.getConnection().createStatement();
 			String sql = "SELECT * FROM User WHERE phone = '" + phone.getText()+"'";
 			ResultSet re = stm.executeQuery(sql);
 			
+			//create a costumer in configs with information of customer searched with phone number
+			Configs.costumer = new User( re.getString(PHONE_COLUMN),re.getFloat(POINT_COLUMN),re.getInt(LEVEL_COLUMN));
+
+			
 			address.setText(re.getString(EMAIL_ADDRESS_COLUMN));
 			name.setText(re.getString(NAME_COLUMN));
+			
 		} catch (SQLException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();

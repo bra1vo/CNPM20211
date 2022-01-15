@@ -11,6 +11,8 @@ public class User {
     private String email;
     private String address;
     private String phone;
+    private AccountLevel accountLevel;
+    
     
     // username + password
     private String username;
@@ -25,6 +27,13 @@ public class User {
         this.username = username;
         this.password = password;
     }
+    
+    public User( String phone,float point, int level){
+       
+    	this.phone = phone;
+        this.accountLevel = new AccountLevel(point,level); 
+    }
+    
     
     // override toString method
     @Override
@@ -72,6 +81,14 @@ public class User {
         this.phone = phone;
     }
     
+    public AccountLevel GetAccountLevel() {
+    	return this.accountLevel;
+    }
+    
+    public void UpdateAccountLevel(int paidMoney) {
+    	accountLevel.UpdateAccountLevel(paidMoney);
+    }
+    
     // geter - seter username + pass
 
     public void setUsername(String username) {
@@ -89,5 +106,7 @@ public class User {
     public String getPassword() {
         return this.password;
     }
+    
+    
    
 }
