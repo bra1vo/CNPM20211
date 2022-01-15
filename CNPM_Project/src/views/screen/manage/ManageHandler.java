@@ -12,6 +12,7 @@ import java.util.ResourceBundle;
 import java.util.logging.Logger;
 
 import javafx.beans.Observable;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -47,7 +48,7 @@ public class ManageHandler extends BaseScreenHandler implements Initializable{
 	private TableView<User> userTableView;
 	
 	@FXML
-	private TableColumn<User, String> id;
+	private TableColumn<User, Integer> id;
 	
 	@FXML
 	private TableColumn<User, String> name;
@@ -106,7 +107,7 @@ public class ManageHandler extends BaseScreenHandler implements Initializable{
     }
     
     public void doSomething() {
-    	role.setCellValueFactory(new PropertyValueFactory<>("id"));
+    	id.setCellValueFactory(cellData -> new SimpleIntegerProperty(cellData.getValue().getId()).asObject());
 		name.setCellValueFactory(new PropertyValueFactory<>("name"));
 		email.setCellValueFactory(new PropertyValueFactory<>("email"));
 		address.setCellValueFactory(new PropertyValueFactory<>("address"));
