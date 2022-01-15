@@ -98,7 +98,7 @@ public class SignUpHandler extends BaseScreenHandler implements Initializable {
 				
 				//Check if create new account successfully, if not show failed dialog
 				Statement stm = AIMSDB.getConnection().createStatement();
-				String sql="select username from user where username='"+tf_usernameup.getText()+"'";
+				String sql="select username from Users where username='"+tf_usernameup.getText()+"'";
 				
 				ResultSet re =stm.executeQuery(sql);
 				if(re.last()) LogInFalseHandler.error();

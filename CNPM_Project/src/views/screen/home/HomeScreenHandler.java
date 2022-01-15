@@ -24,6 +24,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.SplitMenuButton;
+import javafx.scene.control.Tooltip;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
@@ -34,6 +35,7 @@ import utils.Configs;
 import utils.Utils;
 import views.screen.BaseScreenHandler;
 import views.screen.cart.CartScreenHandler;
+import views.screen.manage.ManageHandler;
 import views.screen.workingspace.WorkingspaceHandler;
 
 
@@ -67,8 +69,14 @@ public class HomeScreenHandler extends BaseScreenHandler implements Initializabl
     
     @FXML
     private Button datcho;
+    
+    @FXML
+    private Button manageButton;
 
     private List homeItems;
+    
+    
+    private String currentUser;
 
     public HomeScreenHandler(Stage stage, String screenPath) throws IOException{
         super(stage, screenPath);
@@ -140,6 +148,23 @@ public class HomeScreenHandler extends BaseScreenHandler implements Initializabl
 				e1.printStackTrace();
 			}
         });
+        
+        manageButton.setOnMouseClicked(e->{
+        	ManageHandler managespace;
+        	try {
+        		
+                LOGGER.info("User clicked to view Manage");
+                managespace = new ManageHandler(this.stage, Configs.MANAGE_PATH);
+                managespace.setScreenTitle("Manage title");
+                managespace.show();           
+        	}
+        	catch (Exception e1) {
+				e1.printStackTrace();
+			}
+        	
+        	
+        	
+        });
     }
 
     public void setImage(){
@@ -204,5 +229,22 @@ public class HomeScreenHandler extends BaseScreenHandler implements Initializabl
     }
 
     
+    public String getCurrentUser() {
+    	return currentUser;
+    }
     
+    public void setCurrentUser(String value) {
+    	 currentUser =value;
+    }
+    
+    public void setManageButtonOnOrOff() {
+    	if(currentUser.equals("M")) {
+    		manageButton.setDisable(false);
+    		manageButton.setTooltip(new Tooltip("Manage your user here"));
+    		} 
+    	else {
+    		manageButton.setDisable(true);    		
+    	}
+    }
+         
 }

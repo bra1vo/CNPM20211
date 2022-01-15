@@ -100,6 +100,22 @@ public class LogInHandler extends BaseScreenHandler implements Initializable {
 				HomeScreenHandler homeHandler = new HomeScreenHandler(this.stage, Configs.HOME_PATH);
 				homeHandler.setScreenTitle("Home Screen");
 				homeHandler.setImage();
+				
+				try {
+					Statement stm = AIMSDB.getConnection().createStatement();
+					String sql = "SELECT role FROM User WHERE username='"+ tf_username.getText() +"';";
+					ResultSet re = stm.executeQuery(sql);
+					String str =re.getString(1);
+					homeHandler.setCurrentUser(str);
+					
+					System.out.println("ROLE ROLE ROLE "+str);
+					
+					homeHandler.setCurrentUser(str);
+					homeHandler.setManageButtonOnOrOff();
+				} 
+				catch(Exception e) {
+					e.printStackTrace();
+				}
 				homeHandler.show();
 			} else {
 				LOGGER.info("False a Login");
@@ -129,7 +145,7 @@ public class LogInHandler extends BaseScreenHandler implements Initializable {
 				while (re2.next()) {
 					Configs.user = new User(re2.getInt("id"), re2.getString("name"), re2.getString("email"),
 							re2.getString("address"), re2.getString("phone"), re2.getString("username"),
-							re2.getString("password"));
+							re2.getString("password"), re2.getString("role"));
 				}
 				
 			} else {
