@@ -261,11 +261,9 @@ public class HomeScreenHandler extends BaseScreenHandler implements Initializabl
 	    if(currentUser.equals("M")) {
 	    	manageButton.setDisable(false);
 	    	manageButton.setTooltip(new Tooltip("Manage your user here"));
-	    	datcho.setDisable(false);
 	    	}
-	    else {    		
+	    else  {    		
 	    	manageButton.setDisable(true);
-	    	datcho.setDisable(true);
     	}
     	
     }
