@@ -74,7 +74,7 @@
             </VBox>
             <Pane prefHeight="200.0" prefWidth="200.0">
                <children>
-                  <Button fx:id="datcho" layoutX="31.0" layoutY="3.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="137.0" text="Working space">
+                  <Button fx:id="datcho" layoutX="7.0" layoutY="3.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="137.0" text="Working space">
                      <font>
                         <Font size="16.0" />
                      </font>

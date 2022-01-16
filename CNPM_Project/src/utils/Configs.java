@@ -41,6 +41,7 @@ public class Configs {
 	
 	public static User user = null;
 	public static User costumer = null;
+	public static boolean isCustomer = false;
 
 	// static resource
 	public static final String IMAGE_PATH = "assets/images";

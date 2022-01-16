@@ -42,7 +42,6 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <PasswordField fx:id="tf_password" layoutX="136.0" layoutY="183.0" prefHeight="32.0" prefWidth="199.0" promptText="Password" />
             <Button fx:id="tf_signIn" layoutX="111.0" layoutY="244.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="118.0" text="Sign In">
                <font>
                   <Font size="18.0" />
@@ -50,6 +49,17 @@
             </Button>
             <Button fx:id="tf_signUp" layoutX="180.0" layoutY="305.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="97.0" text="Sign Up" />
             <TextField fx:id="tf_username" layoutX="136.0" layoutY="134.0" prefHeight="32.0" prefWidth="199.0" promptText="User name" />
+            <PasswordField fx:id="tf_password" layoutX="136.0" layoutY="186.0" prefHeight="32.0" prefWidth="199.0" />
+            <Label layoutX="91.0" layoutY="462.0" prefHeight="66.0" prefWidth="276.0" text="Click Here If You Are A Customer!">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Button fx:id="viewCustomer" layoutX="154.0" layoutY="537.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="133.0" text="View Store">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
          </children>
       </AnchorPane>
    </children>

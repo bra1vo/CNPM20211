@@ -143,24 +143,16 @@ public class ManageHandler extends BaseScreenHandler implements Initializable{
 				user.setRole(resultSet.getString("role"));
 				data.add(user);
 				
-				System.out.println(user.getEmail()+" " + user.getName());
 			}
 	
 			ObservableList<User> dbData = FXCollections.observableArrayList(data);
 			
-			System.out.println(dbData);
 			userTableView.setItems(dbData);
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
-    	
-    	
+		} 	
     }
         
-
-     
-    
-    
 }

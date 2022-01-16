@@ -43,6 +43,9 @@ public class LogInHandler extends BaseScreenHandler implements Initializable {
 	private Button tf_signUp;
 	
 	@FXML
+	private Button viewCustomer;
+	
+	@FXML
 	private TextField tf_username;
 
 	@FXML
@@ -91,8 +94,32 @@ public class LogInHandler extends BaseScreenHandler implements Initializable {
 				
 			}
 		});
+		
+		viewCustomer.setOnMouseClicked(e -> {
+			Configs.isCustomer = true;
+			loginToHomeSceenByUser();
+		});
 	}
 	
+	private void loginToHomeSceenByUser() {
+		// TODO Auto-generated method stub
+		try {
+			LOGGER.info("User clicked to Sign In by Customer");		
+			HomeScreenHandler homeHandler = new HomeScreenHandler(this.stage, Configs.HOME_PATH);
+			homeHandler.setScreenTitle("Home Screen");
+			homeHandler.setImage();
+			
+			homeHandler.setCurrentUser("C");
+			homeHandler.setManageButtonOnOrOff(); 
+//			System.out.println("FALSSSSSS");
+			homeHandler.show();
+			
+			
+		} catch (Exception e1) {
+			e1.printStackTrace();
+		}
+	}
+
 	public void loginToHomeSceen() {
 		try {
 			LOGGER.info("User clicked to Sign In");
@@ -151,7 +178,7 @@ public class LogInHandler extends BaseScreenHandler implements Initializable {
 				}
 				
 			} else {
-				isLogin = true;
+				isLogin = false;
 			}; 
 		} catch(Exception e) {
 		}

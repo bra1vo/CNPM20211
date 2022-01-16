@@ -40,6 +40,7 @@ public class ConfirmPurchaserInfoScreenHandler extends BaseScreenHandler impleme
 	@FXML
 	private Label screenTitle;
 
+	// Customer
 	@FXML
 	private TextField name;
 
@@ -48,9 +49,21 @@ public class ConfirmPurchaserInfoScreenHandler extends BaseScreenHandler impleme
 
 	@FXML
 	private TextField address;
+	
+	@FXML
+	private TextField level;
+	
+	
+	// Staff
+	@FXML
+	private TextField name2;
 
 	@FXML
-	private TextField instructions;
+	private TextField phone2;
+
+	@FXML
+	private TextField level2;
+
 
 	@FXML
 	private ComboBox<String> province;
@@ -86,20 +99,23 @@ public class ConfirmPurchaserInfoScreenHandler extends BaseScreenHandler impleme
 			}
 		});
 		
+		name2.setText(Configs.user.getName());
 		
+		phone2.setText(Configs.user.getPhone());
+		
+//		level2.setText(String.valueOf(Configs.user.GetAccountLevel()));
+		level2.setText("Staff");
 	}
 
 	@FXML
 	void submitDeliveryInfo(MouseEvent event) throws IOException, InterruptedException, SQLException {
 	
-
-
 		// add info to messages
 		HashMap messages = new HashMap<>();
 		messages.put("name", name.getText());
 		messages.put("phone", phone.getText());
 		messages.put("address", address.getText());
-		messages.put("instructions", instructions.getText());
+//		messages.put("instructions", instructions.getText());
 		messages.put("province", province.getValue());
 		try {
 			// process and validate delivery info
@@ -131,8 +147,8 @@ public class ConfirmPurchaserInfoScreenHandler extends BaseScreenHandler impleme
 			int EMAIL_ADDRESS_COLUMN=3;
 			int NAME_COLUMN=2;
 			int PHONE_COLUMN = 5;
-			int POINT_COLUMN = 8;
-			int LEVEL_COLUMN = 9;
+			int POINT_COLUMN = 9;
+			int LEVEL_COLUMN = 10;
 			
 			stm = AIMSDB.getConnection().createStatement();
 			String sql = "SELECT * FROM User WHERE phone = '" + phone.getText()+"'";
@@ -144,6 +160,7 @@ public class ConfirmPurchaserInfoScreenHandler extends BaseScreenHandler impleme
 			
 			address.setText(re.getString(EMAIL_ADDRESS_COLUMN));
 			name.setText(re.getString(NAME_COLUMN));
+			level.setText(String.valueOf(re.getInt(LEVEL_COLUMN)));
 			
 		} catch (SQLException e1) {
 			// TODO Auto-generated catch block

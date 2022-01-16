@@ -140,9 +140,9 @@ public class HomeScreenHandler extends BaseScreenHandler implements Initializabl
         addMediaHome(this.homeItems);
         addMenuItem(0, "Book", splitMenuBtnSearch);
         addMenuItem(1, "Coffee", splitMenuBtnSearch);
-/*      addMenuItem(1, "DVD", splitMenuBtnSearch);
-        addMenuItem(2, "CD", splitMenuBtnSearch);
-*/
+        addMenuItem(2, "DVD", splitMenuBtnSearch);
+        addMenuItem(3, "CD", splitMenuBtnSearch);
+
         datcho.setOnMouseClicked(e ->{
         	WorkingspaceHandler workingspace;
         	try {
@@ -178,7 +178,9 @@ public class HomeScreenHandler extends BaseScreenHandler implements Initializabl
         		   logIn = new LogInHandler(this.stage, Configs.LOGIN_PATH);
         		   logIn.setScreenTitle("Working space");
         		   logIn.show();
-				LOGGER.info("Logged Out");
+				   LOGGER.info("Logged Out");
+				   Configs.user = null;
+				   Configs.isCustomer = false;
 			} catch (IOException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
@@ -235,7 +237,6 @@ public class HomeScreenHandler extends BaseScreenHandler implements Initializabl
             List filteredItems = new ArrayList<>();
             homeItems.forEach(me -> {
                 MediaHandler media = (MediaHandler) me;
-                System.out.println(media.getMedia().getTitle().toLowerCase().startsWith(text.toLowerCase()));
                 if (media.getMedia().getTitle().toLowerCase().startsWith(text.toLowerCase())){
                     filteredItems.add(media);
                 }
@@ -257,13 +258,16 @@ public class HomeScreenHandler extends BaseScreenHandler implements Initializabl
     }
     
     public void setManageButtonOnOrOff() {
-    	if(currentUser.equals("M")) {
-    		manageButton.setDisable(false);
-    		manageButton.setTooltip(new Tooltip("Manage your user here"));
-    		} 
-    	else {
-    		manageButton.setDisable(true);    		
+	    if(currentUser.equals("M")) {
+	    	manageButton.setDisable(false);
+	    	manageButton.setTooltip(new Tooltip("Manage your user here"));
+	    	datcho.setDisable(false);
+	    	}
+	    else {    		
+	    	manageButton.setDisable(true);
+	    	datcho.setDisable(true);
     	}
+    	
     }
          
 }
