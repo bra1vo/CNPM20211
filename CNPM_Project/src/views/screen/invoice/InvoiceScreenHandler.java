@@ -73,8 +73,9 @@ public class InvoiceScreenHandler extends BaseScreenHandler {
 		province.setText(purchaserInfo.get("province"));
 		instructions.setText(purchaserInfo.get("instructions"));
 		address.setText(purchaserInfo.get("address"));
+		phone.setText(purchaserInfo.get("phone"));
 		subtotal.setText(Utils.getCurrencyFormat(invoice.getOrder().getAmount()));
-		
+				
 		int discountPercent = getDiscount(Configs.costumer);
 		discount.setText(String.valueOf(discountPercent) + "%");
 		
