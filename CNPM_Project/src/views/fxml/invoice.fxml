@@ -47,14 +47,6 @@
                   <Insets left="10.0" />
                </padding>
             </Label>
-            <Label text="Shipping Fees" GridPane.rowIndex="2">
-               <font>
-                  <Font name="Segoe UI" size="24.0" />
-               </font>
-               <GridPane.margin>
-                  <Insets left="10.0" />
-               </GridPane.margin>
-            </Label>
             <Label text="Total" GridPane.rowIndex="3">
                <font>
                   <Font name="Segoe UI" size="24.0" />
@@ -64,11 +56,6 @@
                </GridPane.margin>
             </Label>
             <Label fx:id="subtotal" alignment="CENTER_RIGHT" prefHeight="44.0" prefWidth="500.0" text="100,000 đ" GridPane.columnIndex="1">
-               <font>
-                  <Font name="Segoe UI" size="24.0" />
-               </font>
-            </Label>
-            <Label fx:id="shippingFees" alignment="CENTER_RIGHT" prefHeight="44.0" prefWidth="500.0" text="50,000 đ" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <font>
                   <Font name="Segoe UI" size="24.0" />
                </font>
@@ -178,7 +165,7 @@
             <VBox fx:id="vboxItems" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="567.0" />
          </content>
       </ScrollPane>
-      <Button alignment="CENTER" contentDisplay="CENTER" layoutX="540.0" layoutY="690.0" mnemonicParsing="false" onMouseClicked="#confirmInvoice" prefHeight="46.0" prefWidth="316.0" style="-fx-background-color: #5091e6; -fx-cursor: hand;" text="Confirm order" textFill="WHITE">
+      <Button fx:id="btnConfirmDelivery" alignment="CENTER" contentDisplay="CENTER" layoutX="540.0" layoutY="690.0" mnemonicParsing="false" onMouseClicked="#confirmInvoice" prefHeight="46.0" prefWidth="316.0" style="-fx-background-color: #5091e6; -fx-cursor: hand;" text="Confirm order" textFill="WHITE">
          <font>
             <Font name="Segoe UI Bold" size="24.0" />
          </font>

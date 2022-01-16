@@ -50,10 +50,8 @@ public class InvoiceScreenHandler extends BaseScreenHandler {
 	private Label subtotal;
 	
 	@FXML
-	private Label discount; //new
+	private Label discount;
 
-	@FXML
-	private Label shippingFees;
 
 	@FXML
 	private Label total;
@@ -70,18 +68,17 @@ public class InvoiceScreenHandler extends BaseScreenHandler {
 	}
 
 	private void setInvoiceInfo(){		
-		HashMap<String, String> deliveryInfo = invoice.getOrder().getDeliveryInfo();
-		name.setText(deliveryInfo.get("name"));
-		province.setText(deliveryInfo.get("province"));
-		instructions.setText(deliveryInfo.get("instructions"));
-		address.setText(deliveryInfo.get("address"));
+		HashMap<String, String> purchaserInfo = invoice.getOrder().getPurchaserInfo();
+		name.setText(purchaserInfo.get("name"));
+		province.setText(purchaserInfo.get("province"));
+		instructions.setText(purchaserInfo.get("instructions"));
+		address.setText(purchaserInfo.get("address"));
 		subtotal.setText(Utils.getCurrencyFormat(invoice.getOrder().getAmount()));
 		
 		int discountPercent = getDiscount(Configs.costumer);
 		discount.setText(String.valueOf(discountPercent) + "%");
 		
-		shippingFees.setText(Utils.getCurrencyFormat(invoice.getOrder().getShippingFees()));
-		int amount = invoice.getOrder().getAmount()*(100-discountPercent)/100 + invoice.getOrder().getShippingFees();
+		int amount = invoice.getOrder().getAmount()*(100-discountPercent)/100;
 		total.setText(Utils.getCurrencyFormat(amount));
 		invoice.setAmount(amount);
 		invoice.getOrder().getlstOrderMedia().forEach(orderMedia -> {

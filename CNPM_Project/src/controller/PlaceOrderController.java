@@ -9,7 +9,7 @@ import java.util.logging.Logger;
 
 import entity.cart.Cart;
 import entity.cart.CartMedia;
-import common.exception.InvalidDeliveryInfoException;
+import common.exception.InvalidPurchaserInfoException;
 import entity.invoice.Invoice;
 import entity.order.Order;
 import entity.order.OrderMedia;
@@ -61,15 +61,15 @@ public class PlaceOrderController extends BaseController{
     }
 
     /**
-     * This method takes responsibility for processing the shipping info from user
+     * This method takes responsibility for processing the purchaser info from user
      * @param info
      * @throws InterruptedException
      * @throws IOException
      */
-    public void processDeliveryInfo(HashMap info) throws InterruptedException, IOException{
-        LOGGER.info("Process Delivery Info");
+    public void processPurchaserInfo(HashMap info) throws InterruptedException, IOException{
+        LOGGER.info("Process Purchaser Info");
         LOGGER.info(info.toString());
-        validateDeliveryInfo(info);
+        validatePurchaserInfo(info);
     }
     
     /**
@@ -78,7 +78,7 @@ public class PlaceOrderController extends BaseController{
    * @throws InterruptedException
    * @throws IOException
    */
-    public void validateDeliveryInfo(HashMap<String, String> info) throws InterruptedException, IOException{
+    public void validatePurchaserInfo(HashMap<String, String> info) throws InterruptedException, IOException{
 /*    	if(!validateName(info.get("name"))){
             throw new InterruptedException("Name is invalid");
         }
@@ -106,16 +106,4 @@ public class PlaceOrderController extends BaseController{
     	return false;
     }
     
-
-    /**
-     * This method calculates the shipping fees of order
-     * @param order
-     * @return shippingFee
-     */
-    public int calculateShippingFee(Order order){
-        Random rand = new Random();
-        int fees = (int)( ( (rand.nextFloat()*10)/100 ) * order.getAmount() );
-        LOGGER.info("Order Amount: " + order.getAmount() + " -- Shipping Fees: " + fees);
-        return fees;
-    }
 }

@@ -8,9 +8,8 @@ import utils.Configs;
 
 public class Order {
     
-    private int shippingFees;
     private List lstOrderMedia;
-    private HashMap<String, String> deliveryInfo;
+    private HashMap<String, String> purchaserInfo;
 
     public Order(){
         this.lstOrderMedia = new ArrayList<>();
@@ -36,20 +35,12 @@ public class Order {
         this.lstOrderMedia = lstOrderMedia;
     }
 
-    public void setShippingFees(int shippingFees) {
-        this.shippingFees = shippingFees;
+    public HashMap getPurchaserInfo() {
+        return purchaserInfo;
     }
 
-    public int getShippingFees() {
-        return shippingFees;
-    }
-
-    public HashMap getDeliveryInfo() {
-        return deliveryInfo;
-    }
-
-    public void setDeliveryInfo(HashMap deliveryInfo) {
-        this.deliveryInfo = deliveryInfo;
+    public void setPurchaserInfo(HashMap purchaserInfoMap) {
+        this.purchaserInfo = purchaserInfoMap;
     }
 
     public int getAmount(){
