@@ -1,4 +1,4 @@
-package views.screen.shipping;
+package views.screen.confirmpurchaserinfo;
 
 import java.io.IOException;
 import java.lang.System.Logger;
@@ -11,7 +11,7 @@ import java.util.ResourceBundle;
 import java.util.logging.LogManager;
 
 import controller.PlaceOrderController;
-import common.exception.InvalidDeliveryInfoException;
+import common.exception.InvalidPurchaserInfoException;
 import entity.db.AIMSDB;
 import entity.invoice.Invoice;
 import entity.order.Order;
@@ -31,7 +31,8 @@ import views.screen.invoice.InvoiceScreenHandler;
 import views.screen.popup.PopupScreen;
 import entity.user.User;
 
-public class ShippingScreenHandler extends BaseScreenHandler implements Initializable {
+public class ConfirmPurchaserInfoScreenHandler extends BaseScreenHandler implements Initializable {
+
 
 	@FXML
 	private Button findButton;
@@ -60,7 +61,7 @@ public class ShippingScreenHandler extends BaseScreenHandler implements Initiali
 
 	private Order order;
 
-	public ShippingScreenHandler(Stage stage, String screenPath, Order order) throws IOException {
+	public ConfirmPurchaserInfoScreenHandler(Stage stage, String screenPath, Order order) throws IOException {
 		super(stage, screenPath);
 		this.order = order;
 	}
@@ -102,15 +103,12 @@ public class ShippingScreenHandler extends BaseScreenHandler implements Initiali
 		messages.put("province", province.getValue());
 		try {
 			// process and validate delivery info
-			getBController().processDeliveryInfo(messages);
-		} catch (InvalidDeliveryInfoException e) {
-			throw new InvalidDeliveryInfoException(e.getMessage());
+			getBController().processPurchaserInfo(messages);
+		} catch (InvalidPurchaserInfoException e) {
+			throw new InvalidPurchaserInfoException(e.getMessage());
 		}
 	
-		// calculate shipping fees
-		int shippingFees = getBController().calculateShippingFee(order);
-		order.setShippingFees(shippingFees);
-		order.setDeliveryInfo(messages);
+		order.setPurchaserInfo(messages);
 		
 		// create invoice screen
 		Invoice invoice = getBController().createInvoice(order);

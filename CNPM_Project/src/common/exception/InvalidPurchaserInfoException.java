@@ -6,15 +6,15 @@ package common.exception;;
  * 
  * @author nguyenlm
  */
-public class InvalidDeliveryInfoException extends AimsException {
+public class InvalidPurchaserInfoException extends AimsException {
 
 	private static final long serialVersionUID = 1091337136123906298L;
 
-	public InvalidDeliveryInfoException() {
+	public InvalidPurchaserInfoException() {
 
 	}
 
-	public InvalidDeliveryInfoException(String message) {
+	public InvalidPurchaserInfoException(String message) {
 		super(message);
 	}
 

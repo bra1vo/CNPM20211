@@ -23,8 +23,8 @@ import javafx.stage.Stage;
 import utils.Configs;
 import utils.Utils;
 import views.screen.BaseScreenHandler;
+import views.screen.confirmpurchaserinfo.ConfirmPurchaserInfoScreenHandler;
 import views.screen.popup.PopupScreen;
-import views.screen.shipping.ShippingScreenHandler;
 
 public class CartScreenHandler extends BaseScreenHandler {
 
@@ -119,12 +119,12 @@ public class CartScreenHandler extends BaseScreenHandler {
 			Order order = placeOrderController.createOrder();
 
 			// display shipping form
-			ShippingScreenHandler ShippingScreenHandler = new ShippingScreenHandler(this.stage, Configs.SHIPPING_SCREEN_PATH, order);
-			ShippingScreenHandler.setPreviousScreen(this);
-			ShippingScreenHandler.setHomeScreenHandler(homeScreenHandler);
-			ShippingScreenHandler.setScreenTitle("Shipping Screen");
-			ShippingScreenHandler.setBController(placeOrderController);
-			ShippingScreenHandler.show();
+			ConfirmPurchaserInfoScreenHandler ConfirmPurchaserInfoScreenHandler = new ConfirmPurchaserInfoScreenHandler(this.stage, Configs.CONFIRM_PURCHASER_SCREEN_PATH, order);
+			ConfirmPurchaserInfoScreenHandler.setPreviousScreen(this);
+			ConfirmPurchaserInfoScreenHandler.setHomeScreenHandler(homeScreenHandler);
+			ConfirmPurchaserInfoScreenHandler.setScreenTitle("Shipping Screen");
+			ConfirmPurchaserInfoScreenHandler.setBController(placeOrderController);
+			ConfirmPurchaserInfoScreenHandler.show();
 
 		} catch (MediaNotAvailableException e) {
 			// if some media are not available then display cart and break usecase Place Order

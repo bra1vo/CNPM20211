@@ -9,7 +9,7 @@ public class SignUpController extends BaseController {
 private static Logger LOGGER = utils.Utils.getLogger(SignUpController.class.getName());
 	
 	/**
-     * This method takes responsibility for processing the shipping info from user
+     * This method takes responsibility for processing the info from user
      * @param info
      * @throws InterruptedException
      * @throws IOException
