@@ -24,6 +24,15 @@ public class PhongHandler extends FXMLScreenHandler {
 	protected Button view;
 	
 	@FXML
+	protected Label area;
+	
+	@FXML
+	protected Label table;
+	
+	@FXML
+	protected Label price;
+	
+	@FXML
 	protected Button datphong;
 	
 	 private static final Logger LOGGER = Utils.getLogger(PhongHandler.class.getName());
@@ -40,6 +49,9 @@ public class PhongHandler extends FXMLScreenHandler {
 	 private void setPhongInfor() {
 		 name.setText(phong.gettenphong());
 		 state.setText(phong.gettrangthai());
+		 area.setText(phong.getarea());
+		 table.setText(Integer.toString(phong.gettable()));
+		 price.setText(Integer.toString(phong.getprice()));
 	 }
 	 
 	 public void setPhong(Phong phong) {

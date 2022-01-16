@@ -14,9 +14,9 @@
             <Font size="20.0" />
          </font>
       </Label>
-      <Label fx:id="ten" layoutX="663.0" layoutY="51.0" text="Room 1">
+      <Label fx:id="ten" layoutX="616.0" layoutY="45.0" text="Room 1">
          <font>
-            <Font size="20.0" />
+            <Font name="System Bold" size="26.0" />
          </font>
       </Label>
       <Label layoutX="384.0" layoutY="333.0" text="Phone :">
