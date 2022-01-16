@@ -7,32 +7,74 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="155.0" prefWidth="1310.0" style="-fx-border-color: #ccd9ff;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="290.0" prefWidth="1310.0" style="-fx-border-color: #ccd9ff;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <VBox layoutX="1.0" layoutY="52.0" prefHeight="100.0" prefWidth="1310.0">
+      <VBox layoutX="1.0" layoutY="57.0" prefHeight="232.0" prefWidth="1310.0">
          <children>
-            <Pane prefHeight="176.0" prefWidth="304.0">
+            <Pane prefHeight="95.0" prefWidth="1310.0">
                <children>
-                  <Label layoutX="560.0" layoutY="8.0" prefHeight="31.0" prefWidth="62.0" text="State:">
+                  <Label layoutX="580.0" layoutY="7.0" prefHeight="31.0" prefWidth="62.0" text="State:">
                      <font>
-                        <Font size="18.0" />
+                        <Font name="System Italic" size="18.0" />
                      </font>
                   </Label>
-                  <Label fx:id="state" layoutX="630.0" layoutY="10.0" prefHeight="27.0" prefWidth="131.0" text="Free">
+                  <Label fx:id="state" layoutX="655.0" layoutY="7.0" prefHeight="27.0" prefWidth="131.0" text="Free">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
                </children>
             </Pane>
-            <Pane prefHeight="183.0" prefWidth="304.0">
+            <Pane prefHeight="95.0" prefWidth="1310.0">
                <children>
-                  <Button fx:id="view" layoutX="496.0" layoutY="8.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="73.0" text="View">
+                  <Label fx:id="area" layoutX="655.0" layoutY="7.0" text="200">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="580.0" layoutY="7.0" text="Area: ">
+                     <font>
+                        <Font name="System Italic" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane prefHeight="95.0" prefWidth="1310.0">
+               <children>
+                  <Label fx:id="table" layoutX="655.0" layoutY="7.0" prefHeight="17.0" prefWidth="28.0" text="5">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="578.0" layoutY="7.0" text="Table:">
+                     <font>
+                        <Font name="System Italic" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane prefHeight="95.0" prefWidth="1310.0">
+               <children>
+                  <Label fx:id="price" layoutX="713.0" layoutY="10.0" text="10000">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="578.0" layoutY="7.0" text="Price(vnd/h):">
+                     <font>
+                        <Font name="System Italic" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane prefHeight="100.0" prefWidth="1310.0">
+               <children>
+                  <Button fx:id="view" layoutX="525.0" layoutY="6.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="73.0" text="View">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Button>
-                  <Button fx:id="datphong" layoutX="668.0" layoutY="8.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="73.0" text="Book">
+                  <Button fx:id="datphong" layoutX="703.0" layoutY="6.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="73.0" text="Book">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -41,9 +83,9 @@
             </Pane>
          </children>
       </VBox>
-      <Label fx:id="name" layoutX="585.0" layoutY="-1.0" prefHeight="54.0" prefWidth="81.0" text="Room 1">
+      <Label fx:id="name" layoutX="605.0" prefHeight="54.0" prefWidth="81.0" text="Room 1">
          <font>
-            <Font size="18.0" />
+            <Font name="System Bold" size="20.0" />
          </font>
       </Label>
    </children>

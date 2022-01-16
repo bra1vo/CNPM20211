@@ -40,6 +40,7 @@ public class Configs {
 	public static float PERCENT_VAT = 10;
 	
 	public static User user = null;
+	public static User costumer = null;
 
 	// static resource
 	public static final String IMAGE_PATH = "assets/images";

@@ -20,17 +20,23 @@ public class Phong {
 	 protected String trangthai;
 	 protected String nguoithue;
 	 protected String sdt;
+	 protected int table;
+	 protected String area;
+	 protected int price;
 	 
 	 public Phong() throws SQLException{
 	        statement = AIMSDB.getConnection().createStatement();
 	    }
 	 
-	 public Phong(int id, String name, String trangthai, String nguoithue, String sdt) throws SQLException {
+	 public Phong(int id, String name, String trangthai, String nguoithue, String sdt, int table, String area, int price) throws SQLException {
 		 this.phongid = id;
 		 this.tenphong = name;
 		 this.trangthai = trangthai;
 		 this.nguoithue = nguoithue;
 		 this.sdt = sdt;
+		 this.table = table;
+		 this.area = area;
+		 this.price = price;
 	 }
 	 
 	 public static List getAllPhong() throws SQLException {
@@ -38,7 +44,8 @@ public class Phong {
 		 ResultSet res = statement.executeQuery("select * from phong");
 		 ArrayList medium = new ArrayList<>();
 	        while(res.next()){
-	            Phong phong = new Phong(res.getInt("phongid"), res.getString("tenphong"), res.getString("trangthai"), res.getString("nguoithue"), res.getString("sdt"));
+	            Phong phong = new Phong(res.getInt("phongid"), res.getString("tenphong"), res.getString("trangthai"), res.getString("nguoithue"), res.getString("sdt"),
+	            		res.getInt("table"), res.getString("area"), res.getInt("price"));
 	            medium.add(phong);
 	        }
 	        return medium;
@@ -82,5 +89,29 @@ public class Phong {
 	 
 	 public String getsdt() {
 		 return sdt;
+	 }
+	 
+	 public void setarea(String area) {
+		 this.area = area;
+	 }
+	 
+	 public String getarea() {
+		 return area;
+	 }
+	 
+	 public void settable(int table) {
+		 this.table = table;
+	 }
+	 
+	 public int gettable() {
+		 return table;
+	 }
+	 
+	 public void setprice(int price) {
+		 this.price = price;
+	 }
+	 
+	 public int getprice() {
+		 return price;
 	 }
 }

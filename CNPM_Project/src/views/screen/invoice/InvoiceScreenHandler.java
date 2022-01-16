@@ -2,12 +2,15 @@ package views.screen.invoice;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.HashMap;
 import java.util.logging.Logger;
 
 import common.exception.ProcessInvoiceException;
 import controller.PaymentController;
+import entity.db.AIMSDB;
 import entity.invoice.Invoice;
+import entity.user.*;
 import entity.order.Order;
 import entity.order.OrderMedia;
 import javafx.fxml.FXML;
@@ -45,6 +48,9 @@ public class InvoiceScreenHandler extends BaseScreenHandler {
 
 	@FXML
 	private Label subtotal;
+	
+	@FXML
+	private Label discount; //new
 
 	@FXML
 	private Label shippingFees;
@@ -63,15 +69,19 @@ public class InvoiceScreenHandler extends BaseScreenHandler {
 		setInvoiceInfo();
 	}
 
-	private void setInvoiceInfo(){
+	private void setInvoiceInfo(){		
 		HashMap<String, String> deliveryInfo = invoice.getOrder().getDeliveryInfo();
 		name.setText(deliveryInfo.get("name"));
 		province.setText(deliveryInfo.get("province"));
 		instructions.setText(deliveryInfo.get("instructions"));
 		address.setText(deliveryInfo.get("address"));
 		subtotal.setText(Utils.getCurrencyFormat(invoice.getOrder().getAmount()));
+		
+		int discountPercent = getDiscount(Configs.costumer);
+		discount.setText(String.valueOf(discountPercent) + "%");
+		
 		shippingFees.setText(Utils.getCurrencyFormat(invoice.getOrder().getShippingFees()));
-		int amount = invoice.getOrder().getAmount() + invoice.getOrder().getShippingFees();
+		int amount = invoice.getOrder().getAmount()*(100-discountPercent)/100 + invoice.getOrder().getShippingFees();
 		total.setText(Utils.getCurrencyFormat(amount));
 		invoice.setAmount(amount);
 		invoice.getOrder().getlstOrderMedia().forEach(orderMedia -> {
@@ -86,7 +96,7 @@ public class InvoiceScreenHandler extends BaseScreenHandler {
 			
 		});
 
-	}
+	} 
 
 	@FXML
 	void confirmInvoice(MouseEvent event) throws IOException {
@@ -99,6 +109,46 @@ public class InvoiceScreenHandler extends BaseScreenHandler {
 		paymentScreen.setScreenTitle("Payment Screen");
 		paymentScreen.show();
 		LOGGER.info("Confirmed invoice");
-	}
+		
+		//update Level and Point of costumer 	
+				Configs.costumer.UpdateAccountLevel(invoice.getAmount());											
+				try {
+				UpdateToDB(Configs.costumer);
+				Configs.costumer = null;
+				}catch(Exception e) {
+					e.printStackTrace();
+				}
 
+
+		
+		
+	}
+	
+	private int getDiscount(User user) {
+		int userLevel = user.GetAccountLevel().GetLevel();
+    	if      (userLevel == 1) return 5;
+    	else if (userLevel == 2) return 10;
+    	else if (userLevel == 3) return 20;
+    	else if (userLevel == 4) return 35;
+    	else                     return 0;
+	}
+	
+	private void UpdateToDB(User user)throws SQLException {
+		Statement stm;
+		try {
+		stm = AIMSDB.getConnection().createStatement();
+		
+		String newPoint = String.valueOf(user.GetAccountLevel().GetPoint());		
+		String newLevel = String.valueOf(user.GetAccountLevel().GetLevel());
+		String userPhone = user.getPhone();
+		
+		String sqlUpdate = "UPDATE User " + "SET point = " + newPoint + ", " + "level = " + newLevel + " " 
+							+ "WHERE phone = "+ userPhone;
+		stm.executeUpdate(sqlUpdate);
+		
+	}catch (SQLException e) {
+		e.printStackTrace();
+	}
+		}
+	
 }
